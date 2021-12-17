@@ -1,4 +1,4 @@
-~~~
+```
 fun solution(lottos: IntArray, win_nums: IntArray): IntArray {
     var userAnswer = 0
     var count = 0
@@ -27,4 +27,4 @@ fun solution(lottos: IntArray, win_nums: IntArray): IntArray {
         }
     )
 }
-~~~
+```
