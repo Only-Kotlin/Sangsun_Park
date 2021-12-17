@@ -1,0 +1,30 @@
+~~~
+fun solution(lottos: IntArray, win_nums: IntArray): IntArray {
+    var userAnswer = 0
+    var count = 0
+    for (num in lottos.indices) {
+        if (lottos[num] == 0) ++count
+        for (num2 in win_nums.indices)
+            if (lottos[num] == win_nums[num2])
+                ++userAnswer
+        
+    }
+    return intArrayOf(
+        when (userAnswer + count) {
+            6 -> 1
+            5 -> 2
+            4 -> 3
+            3 -> 4
+            2 -> 5
+            else -> 6
+        }, when (userAnswer) {
+            6 -> 1
+            5 -> 2
+            4 -> 3
+            3 -> 4
+            2 -> 5
+            else -> 6
+        }
+    )
+}
+~~~
