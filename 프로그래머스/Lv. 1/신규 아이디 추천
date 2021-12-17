@@ -1,0 +1,31 @@
+#### 처음 new_id를 하나씩 나눠서 배열에 저장한다는 생각으로 접근해 헤맸다
+
+~~~
+fun solution(new_id: String): String {
+    var answer = new_id
+    val reg = Regex("[a-z0-9-_.]")
+    answer = answer.toLowerCase()
+    var temp = ""
+    for (c in answer) {
+        if (reg.containsMatchIn(c.toString())) {
+            temp += c
+        }
+    }
+    answer = temp.replace("..", ".")
+    answer = answer.replace("..", ".")
+    if (answer.isNotEmpty() && answer.first() == '.') answer = answer.removeRange(0, 1)
+    if (answer.isNotEmpty() && answer.last() == '.') answer =
+        answer.removeRange(answer.length - 1, answer.length)
+    if (answer.isEmpty()) answer = "a"
+    if (answer.length > 15) {
+        answer = answer.slice(0..14)
+    }
+    if (answer.isNotEmpty() && answer.first() == '.') answer = answer.removeRange(0, 1)
+    if (answer.isNotEmpty() && answer.last() == '.') answer =
+        answer.removeRange(answer.length - 1, answer.length)
+    while (answer.length < 3) {
+        answer += answer[answer.length - 1]
+    }
+    return answer
+}
+~~~
