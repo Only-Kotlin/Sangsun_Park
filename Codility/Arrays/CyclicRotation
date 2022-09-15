@@ -1,0 +1,22 @@
+fun main() {
+    solution(intArrayOf(3, 8, 9, 7, 6), 3)
+}
+
+fun solution(A: IntArray, K: Int): IntArray {
+    val resultArray = A
+    var box = 0
+    var box2 = 0
+    for (n in 1..K) {
+        if (resultArray.isNotEmpty()) box = resultArray[resultArray.size - 1]
+
+        for (aN in resultArray.indices) {
+            box2 = resultArray[aN]
+            resultArray[aN] = box
+            box = box2
+
+        }
+        resultArray.forEach { print("$it, ") }
+        println()
+    }
+    return resultArray
+}
