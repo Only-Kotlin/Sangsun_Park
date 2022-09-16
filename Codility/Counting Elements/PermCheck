@@ -1,0 +1,15 @@
+// 성공도 83%
+
+fun main() {
+    println(solution(intArrayOf(4, 5, 2, 2, 1)))
+}
+
+fun solution(A: IntArray): Int {
+    val a = A.sorted()
+    a.forEachIndexed{ i, v ->
+        if (i+1 != v || a.size-i != a[a.size-i-1]) {
+            return 0
+        }
+    }
+    return 1
+}
